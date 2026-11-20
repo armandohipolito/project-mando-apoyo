@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PROJECT MANDOメFF2023 #1K</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: white;
+}
+
+header {
+    background: #101010;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #49131c;
+}
+
+.logo {
+    color: #ff263f;
+    font-size: 21px;
+    font-weight: bold;
+    animation: brilloMando 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes brilloMando {
+    from {
+        text-shadow: 0 0 8px #ff263f;
+    }
+    to {
+        text-shadow:
+            0 0 15px #ff263f,
+            0 0 30px #ff263f,
+            0 0 50px #ff263f;
+    }
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    background: radial-gradient(circle, #50101b, #080808 75%);
+}
+
+.hero h1 {text-shadow: 0 0 7px rgba(255, 0, 0, 0.4),
+             0 0 16px rgba(255, 0, 0, 0.3),
+             0 0 25px rgba(255, 0, 0, 0.15);
+    font-size: clamp(35px, 7vw, 70px);
+}
+
+.hero h1 span {
+    color: #ff263f;
+}
+
+.hero h2 {
+    color: #ff263f;
+    margin-top: 15px;
+}
+
+.hero p {
+    white-space: nowrap;
+    font-size: 16px;
+}
+
+.boton {
+    display: inline-block;
+    background: #ed263b;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+section {
+    padding: 80px 8%;
+    text-align: center;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.descripcion {
+    max-width: 700px;
+    margin: auto;
+    color: #bbb;
+    line-height: 1.8;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.card {border: 1px solid rgba(255, 0, 0, 0.25);
+    background: #141010;
+    border: 1px solid #49151e;
+    padding: 30px 20px;
+    border-radius: 10px;
+}
+
+.card h3 {
+    color: #ff394d;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #bbb;
+    line-height: 1.6;
+}
+
+.donaciones {
+    background: linear-gradient(135deg, #19090d, #310d14);
+}
+
+.meta {
+    max-width: 500px;
+    margin: 35px auto;
+}
+
+.cantidad {
+    color: #ff394d;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.barra {
+    height: 14px;
+    background: #40151d;
+    border-radius: 20px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.relleno {
+    height: 100%;
+    width: 0%;
+    background: #ed263b;
+}
+
+.nota {
+    color: #aaa;
+    font-size: 13px;
+    margin-top: 25px;
+    line-height: 1.7;
+}
+
+footer {
+    background: #050505;
+    padding: 35px;
+    text-align: center;
+    color: #888;
+}
+
+@media(max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav a {
+        margin: 0 7px;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+}
+.discord-btn {
+    background: linear-gradient(90deg, #5865F2, #3540a5);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    box-shadow: 0 0 12px rgba(88, 101, 242, 0.35);
+    transition: 0.3s;
+}
+
+.discord-btn:hover {
+    background: #4752c4;
+    transform: scale(1.05);
+}
+/* ANIMACIÓN DE APARICIÓN */
+.aparecer {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.aparecer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ANIMACIÓN DE BOTONES */
+.boton,
+.discord-btn {
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                filter 0.3s ease;
+}
+
+.boton:hover,
+.discord-btn:hover {
+    transform: scale(1.06);
+    filter: brightness(1.2);
+    box-shadow: 0 0 18px rgba(255, 40, 40, 0.5);
+}
+/* ANIMACIÓN DE TARJETAS */
+.card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 30, 30, 0.25);
+}
+/* DESPLAZAMIENTO SUAVE */
+html {
+    scroll-behavior: smooth;
+}
+/* ANIMACIÓN DE ENTRADA */
+header {
+    animation: entrada 1s ease both;
+}
+
+.hero {
+    animation: entrada 1.2s ease both;
+}
+
+@keyframes entrada {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* PARTICULAS ROJAS VISIBLES */
+.particula {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #ff0000;
+    border-radius: 50%;
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 999;
+    box-shadow: 0 0 12px 3px #ff0000;
+    animation: flotar 5s linear infinite;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+}
+/* BRILLO ROJO PROJECT MANDO */
+.logo {
+    animation: brilloMando 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes brilloMando {
+    from {
+        text-shadow:
+            0 0 10px #ff0000,
+            0 0 20px #ff0000;
+    }
+    to {
+        text-shadow:
+            0 0 15px #ff0000,
+            0 0 30px #ff0000,
+            0 0 50px #ff2222,
+            0 0 80px #ff0000;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">PROJECT MANDO</div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#proyecto">Proyecto</a>
+        <a href="#donar">Donaciones</a>
+    </nav>
+</header>
+
+<main>
+
+<div class="hero" id="inicio">
+
+    <h1>PROJECT <span>MANDO</span></h1>
+
+    <h2>メ FF2023 #1K</h2>
+
+<p>(EL MEJOR PROYECTO DEL MOMENTO)</p>
+    <a href="#donar" class="boton">
+        APOYAR PROJECT MANDO
+    </a>
+
+</div>
+
+<section id="proyecto">
+
+    <h2>NUESTRO PROYECTO</h2>
+<p>
+    EL MEJOR PROYECTO DEL MOMENTO.
+    Estamos construyendo una experiencia
+    especial para nuestra comunidad.
+</p>
+    <div class="cards">
+
+        <div class="card">
+            <h3>🎮 GAMING</h3>
+            <p>Una experiencia de juego para nuestra comunidad.</p>
+        </div>
+
+        <div class="card">
+            <h3>👥 COMUNIDAD</h3>
+            <p>Jugadores unidos por un mismo proyecto.</p>
+        </div>
+
+        <div class="card">
+            <h3>🚀 DESARROLLO</h3>
+            <p>Mejoras y novedades durante el desarrollo.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="donaciones" id="donar">
+
+    <h2>APOYA PROJECT MANDO</h2>
+
+    <p class="descripcion">
+        Ayúdanos a hacer realidad este proyecto.
+        Cada aportación voluntaria cuenta.
+    </p>
+
+    <div class="meta">
+
+        <div class="cantidad">$0 MXN</div>
+
+        <p>RECAUDADOS DE $3,000 MXN</p>
+
+        <div class="barra">
+            <div class="relleno"></div>
+        </div>
+
+       <a href="https://paypal.me/maxorellana18"
+   class="boton"
+   target="_blank"
+   rel="noopener noreferrer">
+   ❤️ REALIZAR DONACIÓN
+</a>
+
+        <p class="nota">
+            Las donaciones son voluntarias y destinadas
+            al desarrollo de PROJECT MANDO.
+            Serán gestionadas por el adulto responsable.
+        </p>
+
+    </div>
+
+</section>
+<section class="comunidad">
+
+    <h2>ÚNETE A NUESTRA COMUNIDAD</h2>
+
+    <p>
+        Forma parte de PROJECT MANDOメFF2023 #1K.
+        Entérate de las novedades y comparte con la comunidad.
+    </p>
+
+    <a href="https://discord.gg/JGZrmkcSK"
+       target="_blank"
+       class="discord-btn">
+       💬 UNIRME AL DISCORD
+    </a>
+
+</section>
+</main>
+
+<footer>
+    PROJECT MANDOメFF2023 #1K
+    <br><br>
+    © 2026 - Proyecto independiente
+</footer>
+
+<script>
+const elementos = document.querySelectorAll(
+    'section, .meta, .comunidad'
+);
+
+elementos.forEach(elemento => {
+    elemento.classList.add('aparecer');
+});
+
+const observador = new IntersectionObserver((entradas) => {
+    entradas.forEach(entrada => {
+        if (entrada.isIntersecting) {
+            entrada.target.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.15
+});
+
+elementos.forEach(elemento => {
+    observador.observe(elemento);
+});
+</script>
+<script>
+for (let i = 0; i < 70; i++) {
+    const particula = document.createElement("div");
+
+    particula.className = "particula";
+
+    particula.style.left = Math.random() * 100 + "vw";
+    particula.style.animationDuration =
+        (6 + Math.random() * 8) + "s";
+
+    particula.style.animationDelay =
+        Math.random() * 8 + "s";
+
+    particula.style.width =
+        (2 + Math.random() * 3) + "px";
+
+    particula.style.height =
+        particula.style.width;
+
+    document.body.appendChild(particula);
+particula.style.top = "0";
+}
+</script>
+</body>
+</html>
